@@ -1,0 +1,70 @@
+{
+  "name": "@centlax/venus",
+  "version": "0.0.9",
+  "author": "Shimmy Rukundo",
+  "description": "Centlax UI",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/centlax/venus.git"
+  },
+  "homepage": "https://github.com/centlax/venus",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "nuxt-module-build build",
+    "prepack": "pnpm build",
+    "play": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "git" : "bash scripts/git.sh",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "dependencies": {
+    "@egoist/tailwindcss-icons": "^1.4.0",
+    "@headlessui/tailwindcss": "^0.2.0",
+    "@headlessui/vue": "^1.7.16",
+    "@iconify-json/fluent": "^1.1.43",
+    "@iconify-json/heroicons": "^1.1.15",
+    "@nuxt/kit": "^3.8.2",
+    "@nuxtjs/color-mode": "^3.3.2",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/typography": "^0.5.10",
+    "nuxt-icon": "^0.6.6",
+    "tailwind-merge": "^1.14.0"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxt/module-builder": "^0.5.4",
+    "@nuxt/schema": "^3.8.2",
+    "@nuxt/test-utils": "^3.8.1",
+    "@nuxtjs/tailwindcss": "^6.10.1",
+    "@types/node": "^20.10.3",
+    "@vueuse/core": "^10.6.1",
+    "@vueuse/integrations": "^10.6.1",
+    "@vueuse/math": "^10.6.1",
+    "autoprefixer": "^10.4.16",
+    "changelogen": "^0.5.5",
+    "eslint": "^8.55.0",
+    "nuxt": "^3.8.2",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.5",
+    "vitest": "^0.33.0"
+  }
+}
