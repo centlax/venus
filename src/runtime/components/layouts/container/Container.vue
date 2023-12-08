@@ -10,7 +10,7 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import { twMerge, twJoin } from 'tailwind-merge'
-import ui from './section'
+import ui from './container'
 
 defineOptions({
   inheritAttrs: false
@@ -40,3 +40,4 @@ const innerUI = computed(() => {
 })
 
 </script>
+./container

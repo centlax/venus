@@ -1,7 +1,7 @@
 import { defineNuxtModule, installModule, addComponentsDir, addImportsDir, createResolver, addPlugin } from '@nuxt/kit'
 import { name, version } from '../package.json'
 import { type CollectionNames, type IconsPluginOptions } from '@egoist/tailwindcss-icons'
-
+import defaultColors from 'tailwindcss/colors.js'
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {
@@ -55,8 +55,8 @@ export default defineNuxtModule<ModuleOptions>({
       tailwindConfig.theme = tailwindConfig.theme || {}
       tailwindConfig.theme.extend = tailwindConfig.theme.extend || {}
       tailwindConfig.theme.extend.colors = tailwindConfig.theme.extend.colors || {
-        primary: { '50': '#eff6ff', '100': '#dbeafe', '200': '#bfdbfe', '300': '#93c5fd', '400': '#60a5fa', '500': '#3b82f6', '600': '#2563eb', '700': '#1d4ed8', '800': '#1e40af', '900': '#1e3a8a', '950': '#172554' },
-        brand: { '50': '#eff6ff', '100': '#dbeafe', '200': '#bfdbfe', '300': '#93c5fd', '400': '#60a5fa', '500': '#3b82f6', '600': '#2563eb', '700': '#1d4ed8', '800': '#1e40af', '900': '#1e3a8a', '950': '#172554' }
+        primary: defaultColors.indigo,
+        brand: defaultColors.indigo
       }
     })
 
@@ -65,7 +65,7 @@ export default defineNuxtModule<ModuleOptions>({
     await installModule('@nuxtjs/tailwindcss', {
       exposeConfig: true,
       config: {
-        darkMode: 'class',
+        darkMode: 'media',
         plugins: [
           require('@tailwindcss/aspect-ratio'),
           require('@tailwindcss/typography'),
@@ -102,7 +102,7 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     // Loop through component types and add components directory
-    const componentTypes = ['elements', 'layouts']
+    const componentTypes = ['elements', 'layouts', 'forms', 'blocks', 'misc']
 
     componentTypes.forEach(type => {
       addComponentsDirectory(resolve(runtimeDir, 'components', type), type, options, runtimeDir)
