@@ -36,7 +36,7 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     prefix: 'V',
     icons: ['heroicons', 'fluent'],
-    safelistColors: ['primary']
+    safelistColors: ['primary', 'brand']
   },
   async setup (options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
@@ -67,6 +67,7 @@ export default defineNuxtModule<ModuleOptions>({
       config: {
         darkMode: 'media',
         plugins: [
+          require('@tailwindcss/forms')({ strategy: 'class' }),
           require('@tailwindcss/aspect-ratio'),
           require('@tailwindcss/typography'),
           require('@tailwindcss/container-queries'),

@@ -1,48 +1,33 @@
 <template>
-  <NuxtLink :type="props.type" :class="buttonUI">
-    <slot />
-  </NuxtLink>
+  <div class="flex justify-center items-center gap-5">
+    <!-- sm -->
+    <button
+      class="flex items-center gap-2 px-3 py-1.5 text-sm text-white duration-150 bg-indigo-600 rounded-md hover:bg-indigo-500 active:bg-indigo-700"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+        <path fillRule="evenodd" d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z" clipRule="evenodd" />
+      </svg>
+      Button
+    </button>
+
+    <!-- md -->
+    <button
+      class="flex items-center gap-2 px-4 py-2 text-white bg-indigo-600 rounded-md duration-150 hover:bg-indigo-500 active:bg-indigo-700"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+        <path fillRule="evenodd" d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z" clipRule="evenodd" />
+      </svg>
+      Button
+    </button>
+
+    <!-- lg -->
+    <button
+      class="flex items-center gap-2 px-5 py-3 text-white duration-150 bg-indigo-600 rounded-md hover:bg-indigo-500 active:bg-indigo-700"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+        <path fillRule="evenodd" d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z" clipRule="evenodd" />
+      </svg>
+      Button
+    </button>
+  </div>
 </template>
-
-<script setup lang="ts">
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { NuxtLink } from '#components'
-import type { PropType } from 'vue'
-import { twMerge, twJoin } from 'tailwind-merge'
-import { computed } from 'vue'
-import ui from './button.css'
-
-
-const props = defineProps({
-  type: {
-    type: String,
-    default: 'button'
-  },
-  block: {
-    type: Boolean,
-    default: false
-  },
-  label: {
-    type: String,
-    default: null
-  },
-  size: {
-    type: String as PropType<keyof typeof ui.size>,
-    default: ui.default.size
-  },
-  class: {
-    type: [String, Object, Array] as PropType<any>,
-    default: () => ''
-  },
-  variant: {
-    type: String as PropType<keyof typeof ui.variant>,
-    default: ui.default.variant
-  }
-})
-
-const buttonUI = computed(() => {
-  return twMerge(twJoin(
-    ui.variant[props.variant], ui.padding[props.size]
-  ), props.class)
-})
-</script>

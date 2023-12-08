@@ -10,34 +10,40 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import { twMerge, twJoin } from 'tailwind-merge'
-import ui from './container'
+import ui from './container.css'
+import config from '../../../ui.config'
 
 defineOptions({
   inheritAttrs: false
 })
 
 const props = defineProps({
-  size: {
-    type: String as PropType<keyof typeof ui.size>,
-    default: ui.default.size
+  padding: {
+    type: String as PropType<keyof typeof ui.padding>,
+    default: ui.default.padding
   },
   class: {
     type: String,
     default: ''
+  },
+  backColor: {
+    type: String as PropType<keyof typeof config.background>,
+    default: 'auto'
   }
 })
 
 const outerUI = computed(() => {
   return twMerge(twJoin(
-    ui.wrapper
+    ui.wrapper,
+    config.background[props.backColor]
   ), props.class)
 })
 
 const innerUI = computed(() => {
   return twJoin(
-    ui.base, ui.padding, ui.size[props.size]
+    ui.base, ui.padding,
+    ui.padding[props.padding]
   )
 })
 
 </script>
-./container
