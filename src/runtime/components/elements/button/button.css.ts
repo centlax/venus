@@ -1,5 +1,5 @@
 export default {
-  base: 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
+  base: 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600',
   font: 'font-semibold',
   truncate: 'text-left break-all line-clamp-1',
   length: {
@@ -13,7 +13,6 @@ export default {
     lg: 'lg',
     xl: 'xl'
   },
-
   rounded: {
     auto: {
       xs: 'rounded',
@@ -53,9 +52,17 @@ export default {
       xl: 'p-0'
     }
   },
+  colors: {
+    solid: 'bg-brand-600 text-white hover:bg-brand-700',
+    outline: 'bg-transparent text-gray-900 dark:text-gray-200 ring-gray-300 dark:ring-gray-600 hover:bg-gray-50 hover:bg-gray-950',
+    soft: 'bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-300 hover:bg-brand-100 hover:bg-brand-900',
+    ghost: 'bg-transparent text-brand-600 dark:text-brand-500 hover:bg-brand-50 dark:hover:bg-brand-950'
+  },
   variant: {
-    solid: 'bg-indigo-600 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
-    outline: 'bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 hover:bg-gray-50 dark:hover:bg-gray-950'
+    solid: 'shadow-sm',
+    outline: 'shadow-sm dark:shadow-gray-800 ring-1 ring-inset',
+    soft: 'shadow-sm',
+    ghost: ''
   },
   text: {
     xs: 'text-xs',

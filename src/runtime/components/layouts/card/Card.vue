@@ -31,10 +31,6 @@ const props = defineProps({
     type: String,
     default: 'div'
   },
-  height: {
-    type: String,
-    default: ''
-  },
   class: {
     type: [String, Object, Array] as PropType<any>,
     default: () => ''
@@ -52,6 +48,4 @@ const cardUI = computed(() => {
     ui.background
   ), props.class)
 })
-
-
 </script>
