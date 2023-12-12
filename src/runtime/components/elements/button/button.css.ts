@@ -13,12 +13,22 @@ export default {
     lg: 'lg',
     xl: 'xl'
   },
+
   rounded: {
-    xs: 'rounded',
-    sm: 'rounded',
-    md: 'rounded-md',
-    lg: 'rounded-md',
-    xl: 'rounded-md'
+    auto: {
+      xs: 'rounded',
+      sm: 'rounded',
+      md: 'rounded-md',
+      lg: 'rounded-md',
+      xl: 'rounded-md'
+    },
+    full: {
+      xs: 'rounded-full',
+      sm: 'rounded-full',
+      md: 'rounded-full',
+      lg: 'rounded-full',
+      xl: 'rounded-full'
+    }
   },
   padding: {
     auto: {
@@ -59,6 +69,7 @@ export default {
     size: 'md',
     variant: 'solid',
     length: 'inline',
+    rounded: 'auto',
     loadingIcon: 'heroicons:arrow-path-20-solid'
   }
 }

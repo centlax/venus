@@ -41,6 +41,10 @@ const props = defineProps({
     type: String as PropType<keyof typeof ui.padding>,
     default: () => ui.default.padding
   },
+  rounded: {
+    type: String as PropType<keyof typeof ui.rounded>,
+    default: () => ui.default.rounded
+  },
   size: {
     type: String as PropType<keyof typeof ui.size>,
     default: () => ui.default.size
@@ -62,7 +66,7 @@ const buttonUI = computed(() => {
   return twMerge(twJoin(
     ui.base,
     ui.font,
-    ui.rounded[props.size],
+    ui.rounded[props.rounded][props.size],
     ui.padding[props.padding][props.size],
     ui.variant[props.variant],
     ui.text[props.size],
