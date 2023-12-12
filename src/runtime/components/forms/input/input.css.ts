@@ -1,19 +1,29 @@
 export default {
   wrapper: 'relative',
-  base: 'relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0',
+  base: 'block w-full rounded-md border-0 shadow-sm focus:ring-2 focus:ring-inset focus:ring-brand-600 sm:leading-6',
+  variant: {
+    auto: 'text-gray-900 dark:text-white bg-white dark:bg-white/5 ring-1 ring-inset ring-gray-300 dark:ring-white/10',
+    none: 'bg-transparent focus:ring-0 focus:shadow-none'
+  },
   form: 'form-input',
-  rounded: 'rounded-md',
-  placeholder: 'placeholder-gray-400 dark:placeholder-gray-500',
+  font: 'font-medium',
   size: {
-    '2xs': 'text-xs',
+    xs: 'xs',
+    sm: 'sm',
+    md: 'md',
+    lg: 'lg',
+    xl: 'xl'
+  },
+  text: {
     xs: 'text-xs',
     sm: 'text-sm',
     md: 'text-sm',
     lg: 'text-sm',
-    xl: 'text-base'
+    xl: 'text-sm'
   },
+  rounded: 'rounded-md',
+  placeholder: 'placeholder-gray-400',
   gap: {
-    '2xs': 'gap-x-1',
     xs: 'gap-x-1.5',
     sm: 'gap-x-1.5',
     md: 'gap-x-2',
@@ -21,16 +31,23 @@ export default {
     xl: 'gap-x-2.5'
   },
   padding: {
-    '2xs': 'px-2 py-1',
-    xs: 'px-2.5 py-1.5',
-    sm: 'px-2.5 py-1.5',
-    md: 'px-3 py-2',
-    lg: 'px-3.5 py-2.5',
-    xl: 'px-3.5 py-2.5'
+    auto: {
+      xs: 'px-2.5 py-1',
+      sm: 'px-2.5 py-1',
+      md: 'px-3 py-1.5',
+      lg: 'px-3.5 py-2.5',
+      xl: 'px-3.5 py-2.5'
+    },
+    none: {
+      xs: 'p-0',
+      sm: 'p-0',
+      md: 'p-0',
+      lg: 'p-0',
+      xl: 'p-0'
+    }
   },
   leading: {
     padding: {
-      '2xs': 'ps-7',
       xs: 'ps-8',
       sm: 'ps-9',
       md: 'ps-10',
@@ -40,7 +57,6 @@ export default {
   },
   trailing: {
     padding: {
-      '2xs': 'pe-7',
       xs: 'pe-8',
       sm: 'pe-9',
       md: 'pe-10',
@@ -48,24 +64,11 @@ export default {
       xl: 'pe-12'
     }
   },
-  color: {
-    white: {
-      outline: 'shadow-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400'
-    },
-    gray: {
-      outline: 'shadow-sm bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400'
-    }
-  },
-  variant: {
-    outline: 'shadow-sm bg-transparent text-gray-900 dark:text-white ring-1 ring-inset ring-{color}-500 dark:ring-{color}-400 focus:ring-2 focus:ring-{color}-500 dark:focus:ring-{color}-400',
-    none: 'bg-transparent focus:ring-0 focus:shadow-none'
-  },
   icon: {
     base: 'flex-shrink-0 text-gray-400 dark:text-gray-500',
-    color: 'text-{color}-500 dark:text-{color}-400',
+    color: 'text-brand-500 dark:text-brand-400',
     loading: 'animate-spin',
     size: {
-      '2xs': 'h-4 w-4',
       xs: 'h-4 w-4',
       sm: 'h-5 w-5',
       md: 'h-5 w-5',
@@ -76,7 +79,6 @@ export default {
       wrapper: 'absolute inset-y-0 start-0 flex items-center',
       pointer: 'pointer-events-none',
       padding: {
-        '2xs': 'ps-2',
         xs: 'ps-2.5',
         sm: 'ps-2.5',
         md: 'ps-3',
@@ -88,7 +90,6 @@ export default {
       wrapper: 'absolute inset-y-0 end-0 flex items-center',
       pointer: 'pointer-events-none',
       padding: {
-        '2xs': 'pe-2',
         xs: 'pe-2.5',
         sm: 'pe-2.5',
         md: 'pe-3',
@@ -98,9 +99,9 @@ export default {
     }
   },
   default: {
-    size: 'sm',
-    color: 'white',
-    variant: 'outline',
+    size: 'md',
+    variant: 'auto',
+    padding: 'auto',
     loadingIcon: 'i-heroicons-arrow-path-20-solid'
   }
 }
