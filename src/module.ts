@@ -34,7 +34,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   // Default configuration options of the Nuxt module
   defaults: {
-    prefix: 'V',
+    prefix: 'v-',
     icons: ['heroicons', 'fluent'],
     safelistColors: ['primary', 'brand']
   },
@@ -67,7 +67,7 @@ export default defineNuxtModule<ModuleOptions>({
       config: {
         darkMode: 'media',
         plugins: [
-          require('@tailwindcss/forms')({ strategy: 'class' }),
+          require('@tailwindcss/forms'),
           require('@tailwindcss/aspect-ratio'),
           require('@tailwindcss/typography'),
           require('@tailwindcss/container-queries'),

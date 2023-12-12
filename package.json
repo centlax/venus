@@ -29,7 +29,7 @@
     "dev:play": "nuxi build playground",
     "dev:build": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
-    "git" : "bash scripts/git.sh",
+    "git": "bash scripts/git.sh",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest watch"
@@ -47,7 +47,8 @@
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
     "nuxt-icon": "^0.6.6",
-    "tailwind-merge": "^1.14.0"
+    "tailwind-merge": "^1.14.0",
+    "ohash": "^1.1.3"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",

@@ -30,12 +30,12 @@
   }
 }
 
-.dark {
-  color-scheme: dark;
+a:focus-visible {
+  @apply outline-brand-600;
 }
 
+::selection { @apply bg-brand-600/40; }
 
 select {
   background-image: none;
 }
-

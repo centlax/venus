@@ -1,14 +1,91 @@
 <template>
-  <NuxtLink
-    class="text-brand-600 dark:text-brand-300 hover:underline"
+  <component
+    :is="as"
+    v-if="!to"
+    :disabled="disabled"
     v-bind="$attrs"
-    :class="linkUI"
+    :class="active ? activeClass : inactiveClass"
   >
     <slot />
+  </component>
+  <NuxtLink
+    v-else
+    v-slot="{ route, href, target, rel, navigate, isActive, isExactActive, isExternal }"
+    v-bind="$props"
+    custom
+  >
+    <a
+      v-bind="$attrs"
+      :href="!disabled ? href : undefined"
+      :aria-disabled="disabled ? 'true' : undefined"
+      :role="disabled ? 'link' : undefined"
+      :rel="rel"
+      :target="target"
+      :class="active ? activeClass : resolveLinkClass(route, $route, { isActive, isExactActive })"
+      @click="(e) => !isExternal && navigate(e)"
+    >
+      <slot v-bind="{ isActive: exact ? isExactActive : isActive }" />
+    </a>
   </NuxtLink>
 </template>
 
-<script setup lang="ts">
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+<script lang="ts" setup>
+import { isEqual } from 'ohash'
 import { NuxtLink } from '#components'
+
+defineOptions({
+  inheritAttrs: false
+})
+
+const props = defineProps({
+  ...NuxtLink.props,
+  as: {
+    type: String,
+    default: 'button'
+  },
+  disabled: {
+    type: Boolean,
+    default: null
+  },
+  active: {
+    type: Boolean,
+    default: false
+  },
+  exact: {
+    type: Boolean,
+    default: false
+  },
+  exactQuery: {
+    type: Boolean,
+    default: false
+  },
+  exactHash: {
+    type: Boolean,
+    default: false
+  },
+  inactiveClass: {
+    type: String,
+    default: undefined
+  }
+})
+
+function resolveLinkClass (route: { query: any; hash: any; }, $route: { query: any; hash: any; }, { isActive, isExactActive }: { isActive: boolean, isExactActive: boolean }) {
+  if (props.exactQuery && !isEqual(route.query, $route.query)) {
+    return props.inactiveClass
+  }
+  if (props.exactHash && route.hash !== $route.hash) {
+    return props.inactiveClass
+  }
+
+  if (props.exact && isExactActive) {
+    return props.activeClass
+  }
+
+  if (!props.exact && isActive) {
+    return props.activeClass
+  }
+
+  return props.inactiveClass
+}
+
 </script>
