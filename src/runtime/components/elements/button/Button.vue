@@ -65,7 +65,6 @@ const buttonUI = computed(() => {
     ui.rounded[props.size],
     ui.padding[props.padding][props.size],
     ui.variant[props.variant],
-    ui.color[props.variant],
     ui.text[props.size],
     ui.length[props.length]
   ), props.class)
