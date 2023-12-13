@@ -1,8 +1,6 @@
 <template>
-  <div :class="outerUI">
-    <div :class="innerUI">
-      <slot />
-    </div>
+  <div :class="containerUI">
+    <slot />
   </div>
 </template>
 
@@ -11,7 +9,6 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 import { twMerge, twJoin } from 'tailwind-merge'
 import ui from './container.css'
-import config from '../../../ui.config'
 
 defineOptions({
   inheritAttrs: false
@@ -25,25 +22,14 @@ const props = defineProps({
   class: {
     type: String,
     default: ''
-  },
-  backColor: {
-    type: String as PropType<keyof typeof config.background>,
-    default: 'auto'
   }
 })
 
-const outerUI = computed(() => {
+const containerUI = computed(() => {
   return twMerge(twJoin(
-    ui.wrapper,
-    config.background[props.backColor]
+    ui.base,
+    ui.color,
+    ui.padding[props.padding]
   ), props.class)
 })
-
-const innerUI = computed(() => {
-  return twJoin(
-    ui.base, ui.padding,
-    ui.padding[props.padding]
-  )
-})
-
 </script>

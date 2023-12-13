@@ -103,7 +103,7 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     // Loop through component types and add components directory
-    const componentTypes = ['elements', 'layouts', 'forms', 'blocks', 'misc']
+    const componentTypes = ['elements', 'layouts', 'overlays', 'forms', 'blocks', 'misc']
 
     componentTypes.forEach(type => {
       addComponentsDirectory(resolve(runtimeDir, 'components', type), type, options, runtimeDir)

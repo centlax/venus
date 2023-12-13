@@ -1,7 +1,7 @@
 
 export default {
-  wrapper: 'min-w-full',
-  base: 'px-[1rem] mx-auto max-w-screen-2xl overflow-hidden',
+  base: 'mx-auto max-w-screen-2xl px-[1rem] overflow-hidden',
+  color: 'bg-white dark:bg-gray-900 text-gray-900 dark:text-white',
   padding: {
     xs: 'sm:px-[1.05rem] md:px-[1.10rem] lg:px-[1.15rem] xl:px-[1.20rem] 2xl:px-[1.25rem]',
     sm: 'sm:px-[1.10rem] md:px-[1.20rem] lg:px-[1.30rem] xl:px-[1.40rem] 2xl:px-[1.50rem]',

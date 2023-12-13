@@ -71,6 +71,35 @@ export default {
     lg: 'text-sm',
     xl: 'text-sm'
   },
+  icon: {
+    base: 'flex-shrink-0',
+    loading: 'animate-spin',
+    leading: {
+      margin: {
+        xs: 'mr-0.5',
+        sm: 'mr-0.5',
+        md: 'mr-1',
+        lg: 'mr-1.5',
+        xl: 'mr-1.5'
+      }
+    },
+    trailing: {
+      margin: {
+        xs: 'ml-0.5',
+        sm: 'ml-0.5',
+        md: 'ml-1',
+        lg: 'ml-1.5',
+        xl: 'ml-1.5'
+      }
+    },
+    size: {
+      xs: 'h-4 w-4',
+      sm: 'h-5 w-5',
+      md: 'h-5 w-5',
+      lg: 'h-5 w-5',
+      xl: 'h-6 w-6'
+    }
+  },
   default: {
     padding: 'auto',
     size: 'md',
