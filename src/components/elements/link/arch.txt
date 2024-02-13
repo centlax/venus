@@ -1,0 +1,48 @@
+<template>
+  <component v-if="!props.to" :is="props.as">
+    <slot/>
+  </component>
+  <template v-else>
+    <a v-if="isExternal" rel="noopener" v-bind="$attrs" :href="(props.to as string)" target="_blank">
+      <slot />
+    </a>
+    <router-link v-else v-bind="$props" custom v-slot="{ isActive, href, navigate }">
+      <a
+        v-bind="$attrs"
+        :href="href"
+        @click="navigate"
+        :class="isActive ? activeClass : inactiveClass"
+      >
+        <slot />
+      </a>
+    </router-link>
+  </template>
+</template>
+
+<script setup lang="ts">
+import { RouterLink, type RouterLinkProps, type RouteLocationRaw } from 'vue-router'
+import { computed } from 'vue'
+
+defineOptions({
+  name: 'ULink',
+  inheritAttrs: false
+})
+
+interface LinkProps extends Omit<RouterLinkProps, 'to'> {
+  /**
+   * Route Location the link should navigate to when clicked on.
+   */
+  to?: RouteLocationRaw // need to manually type to avoid breaking typedPages
+  inactiveClass?: string | string[]
+  href?: LinkProps['to']
+  as: string
+  target?: '_blank' | '_parent' | '_self' | '_top' | (string & {}) | null
+}
+
+const props = withDefaults(defineProps<LinkProps>(), {})
+
+const isExternal = computed(function() {
+  return typeof props.to === 'string' && props.to.startsWith('http')
+})
+
+</script>
