@@ -6,33 +6,19 @@ const share = {
     'shadow-sm ui:text-gray-900-0 ui:caret-{color} ring-1 ring-inset ui:ring-{color} focus:ring-2'
 }
 export default {
-  wrapper: 'relative',
-  base: 'relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0',
-  form: 'form-input',
-  font: 'font-medium',
+  base: 'relative block w-full form-input font-medium disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0',
   rounded: shareUI.rounded,
   placeholder: 'placeholder-gray-400 dark:placeholder-gray-500',
   size: shareUI.size,
   text: shareUI.text,
+  transform: { capitalize: 'capitalize', uppercase: 'uppercase', lowercase: 'lowercase', none: 'none' },
   gap: shareUI.gap,
   padding: shareUI.padding,
   leading: {
-    padding: {
-      xs: 'ps-8',
-      sm: 'ps-9',
-      md: 'ps-10',
-      lg: 'ps-11',
-      xl: 'ps-12'
-    }
+    padding: { xs: 'ps-8', sm: 'ps-9', md: 'ps-10', lg: 'ps-11', xl: 'ps-12' }
   },
   trailing: {
-    padding: {
-      xs: 'pe-8',
-      sm: 'pe-9',
-      md: 'pe-10',
-      lg: 'pe-11',
-      xl: 'pe-12'
-    }
+    padding: { xs: 'pe-8', sm: 'pe-9', md: 'pe-10', lg: 'pe-11', xl: 'pe-12' }
   },
   color: {
     ...shareUI.color,
@@ -53,24 +39,12 @@ export default {
     leading: {
       wrapper: 'absolute inset-y-0 left-0 flex items-center',
       pointer: 'pointer-events-none',
-      padding: {
-        xs: 'px-2',
-        sm: 'px-2',
-        md: 'px-2.5',
-        lg: 'px-3',
-        xl: 'px-3.5'
-      }
+      padding: { xs: 'px-2', sm: 'px-2', md: 'px-2.5', lg: 'px-3', xl: 'px-3.5' }
     },
     trailing: {
       wrapper: 'absolute inset-y-0 right-0 flex items-center',
       pointer: 'pointer-events-none',
-      padding: {
-        xs: 'px-2',
-        sm: 'px-2',
-        md: 'px-2.5',
-        lg: 'px-3',
-        xl: 'px-3.5'
-      }
+      padding: { xs: 'px-2', sm: 'px-2', md: 'px-2.5', lg: 'px-3', xl: 'px-3.5' }
     }
   },
   default: {

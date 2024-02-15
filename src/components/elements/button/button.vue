@@ -8,7 +8,7 @@
         {{ props.label }}
       </span>
     </slot>
-    <slot name="trailing"> 
+    <slot name="trailing">
       <UIcon v-if="props.trailingIcon" :name="props.trailingIcon" />
     </slot>
   </button>
@@ -32,8 +32,8 @@ interface ButtonProps extends /* @vue-ignore */ ButtonHTMLAttributes {
   padded?: boolean
   square?: boolean
   block?: boolean
-
 }
+
 const props = withDefaults(defineProps<ButtonProps>(), {
   leadingIcon: undefined,
   trailingIcon: undefined,
@@ -48,17 +48,19 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 const slots = useSlots()
 const isSquare = computed(() => props.square || (!slots.default && !props.label))
 const buttonUI = computed(() => {
-  return twMerge(twJoin(
-    ui.base,
-    ui.font,
-    ui.rounded[props.size],
-    ui.text[props.size],
-    ui.gap[props.size],
-    props.padded && ui[isSquare.value ? 'square' : 'padding'][props.size],
-    isWhiteGray(props.color) && ui.color[props.color],
-    !isWhiteGray(props.color) && ui.variant[props.variant].replaceAll('{color}', props.color),
-    props.block ? ui.block : ui.inline
-  ), props.class)
+  return twMerge(
+    twJoin(
+      ui.base,
+      ui.font,
+      ui.rounded[props.size],
+      ui.text[props.size],
+      ui.gap[props.size],
+      props.padded && ui[isSquare.value ? 'square' : 'padding'][props.size],
+      isWhiteGray(props.color) && ui.color[props.color],
+      !isWhiteGray(props.color) && ui.variant[props.variant].replaceAll('{color}', props.color),
+      props.block ? ui.block : ui.inline
+    ),
+    props.class
+  )
 })
-
 </script>
