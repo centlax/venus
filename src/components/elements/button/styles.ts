@@ -1,29 +1,26 @@
-import { shareUI } from '../../../theme'
-const share = {
-  white_gray:
-    'focus:outline-none shadow-sm ring-1 ui:ring-gray-300-700 focus-visible:(ring-2 ui:ring-primary)'
-}
+import { share } from '../../../theme'
+const white_gray = 'focus:outline-none shadow-sm ring-1 ui:ring-gray-300-700 focus-visible:(ring-2 ui:ring-primary)'
+
 export default {
-  base: 'focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0',
-  font: 'font-semibold',
-  rounded: shareUI.rounded,
+  base: 'font-semibold focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0',
+  rounded: share.rounded,
   truncate: 'text-left break-all line-clamp-1',
   block: 'w-full flex justify-center items-center',
   inline: 'inline-flex items-center',
-  size: shareUI.size,
-  text: shareUI.text,
-  gap: shareUI.gap,
-  padding: shareUI.padding,
-  square: shareUI.square,
+  size: share.size,
+  text: share.text,
+  gap: share.gap,
+  padding: share.padding,
+  square: share.square,
   color: {
-    ...shareUI.color,
+    ...share.color,
     white: [
       'ui:text-gray-900-0 ui:bg-gray-0-900 hover:ui:bg-gray-100-800 disabled:ui:bg-gray-0-900' +
-        share.white_gray
+      white_gray
     ].toString(),
     gray: [
       'ui:text-gray-700-200 ui:bg-gray-50-800 hover:ui:bg-gray-100-700 disabled:ui:bg-gray-100-800 ' +
-        share.white_gray
+      white_gray
     ].toString()
   },
   variant: {
@@ -44,6 +41,6 @@ export default {
     base: 'flex-shrink-0',
     loading: 'animate-spin',
     color: 'ui:text-primary',
-    size: shareUI.icon.size
+    size: share.icon.size
   }
 }

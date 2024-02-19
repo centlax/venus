@@ -3,7 +3,7 @@
     <span>
       <slot name="leading"> <UIcon /> </slot>
     </span>
-    <input :class="inputUI" v-bind="$attrs" v-model="model" />
+    <input v-bind="$attrs" :class="inputUI" v-model="model" />
     <span>
       <slot name="trailing"> <UIcon /> </slot>
     </span>
@@ -12,9 +12,10 @@
 
 <script setup lang="ts">
 import { UIcon } from '../../../components'
-import ui from './input.css'
+import css from './styles'
 import { twMerge, twJoin } from 'tailwind-merge'
-import { computed, type InputHTMLAttributes } from 'vue'
+import { computed } from 'vue'
+import type { InputProps } from './types'
 
 const model = defineModel() // two way binding
 
@@ -23,10 +24,6 @@ defineOptions({
   inheritAttrs: false
 })
 
-interface InputProps extends /* @vue-ignore */ InputHTMLAttributes {
-  size?: Extract<keyof typeof ui.size, string>
-  transform?: Extract<keyof typeof ui.transform, string>
-}
 
 const props = withDefaults(defineProps<InputProps>(), {
   size: 'md', transform: 'none'
@@ -35,8 +32,10 @@ const props = withDefaults(defineProps<InputProps>(), {
 
 const inputUI = computed(() => {
   return twMerge(twJoin(
-    ui.base, ui.rounded[props.size], ui.transform[props.transform],
-    
+    css.base, css.rounded[props.size], css.placeholder,
+    css.text[props.size], css.transform[props.transform],
+    css.gap[props.size], css.padding[props.size], 
+    css.leading[props.size], css.trailing[props.size]
   ), props.class )
 })
 </script>

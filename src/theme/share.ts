@@ -1,4 +1,4 @@
-export const shareUI = {
+export const share = {
   color: {
     primary: 'primary',
     success: 'success',

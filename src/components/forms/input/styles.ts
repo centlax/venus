@@ -1,5 +1,5 @@
-import { shareUI } from '../../../theme'
-const share = {
+import { share } from '../../../theme'
+const common = {
   white_gray:
     'shadow-sm ui:text-gray-900-0 ring-1 ring-inset ui:ring-gray-300-700 focus:ring-2 focus:(ui:ring-primary ui:caret-primary)',
   outline:
@@ -7,35 +7,31 @@ const share = {
 }
 export default {
   base: 'relative block w-full form-input font-medium disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0',
-  rounded: shareUI.rounded,
+  rounded: share.rounded,
   placeholder: 'placeholder-gray-400 dark:placeholder-gray-500',
-  size: shareUI.size,
-  text: shareUI.text,
+  size: share.size,
+  text: share.text,
   transform: { capitalize: 'capitalize', uppercase: 'uppercase', lowercase: 'lowercase', none: 'none' },
-  gap: shareUI.gap,
-  padding: shareUI.padding,
-  leading: {
-    padding: { xs: 'ps-8', sm: 'ps-9', md: 'ps-10', lg: 'ps-11', xl: 'ps-12' }
-  },
-  trailing: {
-    padding: { xs: 'pe-8', sm: 'pe-9', md: 'pe-10', lg: 'pe-11', xl: 'pe-12' }
-  },
+  gap: share.gap,
+  padding: share.padding,
+  leading: { xs: 'ps-8', sm: 'ps-9', md: 'ps-10', lg: 'ps-11', xl: 'ps-12' },
+  trailing: { xs: 'pe-8', sm: 'pe-9', md: 'pe-10', lg: 'pe-11', xl: 'pe-12' },
   color: {
-    ...shareUI.color,
-    white: ['ui:bg-gray-0-900 ' + share.white_gray].toString(),
-    gray: ['ui:bg-gray-50-800 ' + share.white_gray].toString()
+    ...share.color,
+    white: ['ui:bg-gray-0-900 ' + common.white_gray].toString(),
+    gray: ['ui:bg-gray-50-800 ' + common.white_gray].toString()
   },
   variant: {
     outline: {
-      auto: ['bg-transparent ' + share.outline].toString(),
-      white: ['ui:bg-gray-0-900 ' + share.outline].toString(),
-      gray: ['ui:bg-gray-50-800 ' + share.outline].toString()
+      auto: ['bg-transparent ' + common.outline].toString(),
+      white: ['ui:bg-gray-0-900 ' + common.outline].toString(),
+      gray: ['ui:bg-gray-50-800 ' + common.outline].toString()
     }
   },
   icon: {
     base: 'flex-shrink-0 text-gray-600 dark:text-gray-500',
     color: 'text-{color}-600 dark:text-{color}-500',
-    size: shareUI.icon.size,
+    size: share.icon.size,
     leading: {
       wrapper: 'absolute inset-y-0 left-0 flex items-center',
       pointer: 'pointer-events-none',

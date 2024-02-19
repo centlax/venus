@@ -1,2 +1,3 @@
 export { default as UButton } from './button.vue'
-export { default as UButtonStyle } from './button.css'
+export { default as UButtonStyles } from './styles'
+export type { default as UButtonTypes } from './types'

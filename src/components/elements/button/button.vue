@@ -4,7 +4,7 @@
       <UIcon v-if="props.leadingIcon" :name="props.leadingIcon" />
     </slot>
     <slot>
-      <span v-if="props.label" :class="[props.truncate ? ui.truncate : undefined]">
+      <span v-if="props.label" :class="[props.truncate ? css.truncate : undefined]">
         {{ props.label }}
       </span>
     </slot>
@@ -15,24 +15,13 @@
 </template>
 
 <script setup lang="ts">
-import { type ButtonHTMLAttributes, useSlots, computed } from 'vue'
+import { useSlots, computed } from 'vue'
 import { twMerge, twJoin } from 'tailwind-merge'
 import { isWhiteGray } from '../../../utils'
 import { UIcon } from '../icon'
-import ui from './button.css'
+import css from './styles'
+import type { ButtonProps } from './types'
 
-interface ButtonProps extends /* @vue-ignore */ ButtonHTMLAttributes {
-  leadingIcon?: string
-  trailingIcon?: string
-  label?: string
-  truncate?: boolean
-  color?: Extract<keyof typeof ui.color, string>
-  size?: Extract<keyof typeof ui.size, string>
-  variant?: Extract<keyof typeof ui.variant, string>
-  padded?: boolean
-  square?: boolean
-  block?: boolean
-}
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   leadingIcon: undefined,
@@ -50,15 +39,14 @@ const isSquare = computed(() => props.square || (!slots.default && !props.label)
 const buttonUI = computed(() => {
   return twMerge(
     twJoin(
-      ui.base,
-      ui.font,
-      ui.rounded[props.size],
-      ui.text[props.size],
-      ui.gap[props.size],
-      props.padded && ui[isSquare.value ? 'square' : 'padding'][props.size],
-      isWhiteGray(props.color) && ui.color[props.color],
-      !isWhiteGray(props.color) && ui.variant[props.variant].replaceAll('{color}', props.color),
-      props.block ? ui.block : ui.inline
+      css.base,
+      css.rounded[props.size],
+      css.text[props.size],
+      css.gap[props.size],
+      props.padded && css[isSquare.value ? 'square' : 'padding'][props.size],
+      isWhiteGray(props.color) && css.color[props.color],
+      !isWhiteGray(props.color) && css.variant[props.variant].replaceAll('{color}', props.color),
+      props.block ? css.block : css.inline
     ),
     props.class
   )
